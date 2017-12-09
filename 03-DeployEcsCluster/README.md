@@ -113,7 +113,7 @@ Once you've specified your Port Mappings, scroll down and add a log driver.  The
 Once you've added your log driver, add the Container Definition, and create the Task Definition.
 
 
-## Create your Services
+## Create your Service
 
 Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  [Creating the cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster).
 
