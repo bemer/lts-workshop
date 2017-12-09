@@ -183,7 +183,7 @@ To tag and push the web repository:
 > Why `:latest`?  This is the actual image tag.  In most production environments, you'd tag images for different schemes:  for example, you might tag the most up-to-date image with `:latest`, and all other versions of the same container with a commit SHA from a CI job.  If you push an image without a specific tag, it will default to `:latest`, and untag the previous image with that tag.  For more information on Docker tags, see the Docker [documentation](https://docs.docker.com/engine/getstarted/step_six/).
 
 
-This should return something like this:
+This step will take some minutes. When the command finishes, you should see something like this:
 
     The push refers to a repository [<account_id>.ecr.us-east-1.amazonaws.com/lts-demo-app] (len: 1)
     ec59b8b825de: Image already exists
