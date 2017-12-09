@@ -185,14 +185,16 @@ To tag and push the web repository:
 
 This step will take some minutes. When the command finishes, you should see something like this:
 
-    The push refers to a repository [<account_id>.ecr.us-east-1.amazonaws.com/lts-demo-app] (len: 1)
-    ec59b8b825de: Image already exists
-    5158f10ac216: Image successfully pushed
-    860a4e60cdf8: Image successfully pushed
-    6fb890c93921: Image successfully pushed
-
-    aa78cde6a49b: Image successfully pushed
-    Digest: sha256:fa0601417fff4c3f3e067daa7e533fbed479c95e40ee96a24b3d63b24938cba8
+    The push refers to a repository [<account_id>.dkr.ecr.us-east-1.amazonaws.com/lts-demo-app]
+    9ef5219507db: Pushed
+    b3d18e8f520f: Pushed
+    a83b4d2ff3a0: Pushed
+    2f5b0990636a: Pushed
+    c9748fbf541d: Pushed
+    b3968bc26fbd: Pushed
+    aa4e47c45116: Pushed
+    788ce2310e2f: Pushed
+    latest: digest: sha256:38588bb240b57d123522ab3d23107cec642907a99f1379445fbea27dafc58608 size: 1988
 
 
 You can see your pushed images by viewing the repository in the AWS Console.  Alternatively, you can use the CLI:
