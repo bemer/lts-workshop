@@ -106,50 +106,51 @@ A few things to note here:
 
 Once you've specified your Port Mappings, scroll down and add a log driver.  There are a few options here, but for this demo, select **Auto-configure CloudWatch Logs**:
 
-![aws log driver](https://github.com/abby-fuller/ecs-demo/blob/master/images/setup_logdriver.png)
+![aws log driver](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/setup_logdriver.png)
 
 Once you've added your log driver, add the Container Definition, and create the Task Definition.
 
 
 ## Create your Services
 
-Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  **Setting** https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#setting-up-the-cluster option.
+Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  [Creating the cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster).
 
-Next, you'll need to create your web service.  From the cluster detail page, choose **Services** > **Create**.
+Next, you'll need to create your app service.  From the cluster detail page, choose **Services** > **Create**.
 
-![create service](https://github.com/abby-fuller/ecs-demo/blob/master/images/create_service.png)
-
-Choose the web Task Definition you created in the previous section.  For the purposes of this demo, we'll only start one copy of each task.  In a production environment, you will always want more than one copy of each task running for reliability and availability.
+Select `EC2` as the *Launch Type* choose the Task Definition you created in the previous section. For the purposes of this demo, we'll only start one copy of this task.  In a production environment, you will always want more than one copy of each task running for reliability and availability.
 
 You can keep the default **AZ Balanced Spread** for the Task Placement Policy.  To learn more about the different Task Placement Policies, see the [documentation](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html), or this [blog post](https://aws.amazon.com/blogs/compute/introducing-amazon-ecs-task-placement-policies/).
 
-Under **Optional Configurations**, choose **Configure ELB**:
+![create service](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/create_service.png)
 
-![choose container to add to elb](https://github.com/abby-fuller/ecs-demo/blob/master/images/select_container_and_role.png)
+Click in **Next**.
 
-Select the web container, choose **Add to ELB**.  
+Under **Load balancing**, select **Application Load Balancer**. Under *Container to load balance*, select the container "*lts-workshop*" and click in **Add to load balancer**:
 
-![add to ALB](https://github.com/abby-fuller/ecs-demo/blob/master/images/add_container_to_alb.png)
+![add to ALB](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/add_container_to_alb.png)
 
-This final step allows you to configure the container with the ALB.  When we created our ALB, we only added a listener for HTTP:80.  Select this from the dropdown as the value for **Listener**.  For **Target Group Name**, enter a value that will make sense to you later, like **ecs-demo-web**.  For **Path Pattern**, the value should be **`/web*`**.  This is the route that we specified in our Python application.
+This final step allows you to configure the container with the ALB.  When we created our ALB, we only added a listener for HTTP:80.  Select this from the dropdown as the value for **Listener**.  For **Target Group Name**, enter a value that will make sense to you later, like **lts-demo-app**.  For **Path Pattern**, the value should be **`/app*`**.  This is the route that we specified in our Python application. In the **Evaluation order**, add the number `1`.
 
-If the values look correct, click **Save** to add your Container.  
+Finally, **Health check path**, use the value `/app`.
 
-Repeat this process for the API container and task definition.  
+![configure container ALB](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/configure_container_alb.png)
+
+If the values look correct, click **Next Step**.
+
+Since we will not use Auto Scaling in this tutorial, in the **Set Auto Scaling** screen, just click in **Next Step** and after reviewing your configurations, click in **Create Service**.
+
 
 ## Testing our service deployments from the console and the ALB
 
-You can see service level events from the ECS console.  This includes deployment events. You can test that both of your services deployed, and registered properly with the ALB by looking at the service's **Events** tab:
+You can see service level events from the ECS console.  This includes deployment events. You can test that of your service deployed, and registered properly with the ALB by looking at the service's **Events** tab:
 
-![deployment event](https://github.com/abby-fuller/ecs-demo/blob/master/images/steady_state_service.png)
+![deployment event](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/steady_state_service.png)
 
 We can also test from the ALB itself.  To find the DNS A record for your ALB, navigate to the EC2 Console > **Load Balancers** > **Select your Load Balancer**.  Under **Description**, you can find details about your ALB, including a section for **DNS Name**.  You can enter this value in your browser, and append the endpoint of your service, to see your ALB and ECS Cluster in action:
 
-![alb web test](https://github.com/abby-fuller/ecs-demo/blob/master/images/alb_web_response.png)
+![alb web test](https://github.com/abby-fuller/ecs-demo/blob/master/images/alb_app_response.png)
 
-![alb api test](https://github.com/abby-fuller/ecs-demo/blob/master/images/alb_api_test.png)
-
-You can see that the ALB routes traffic appropriately based on the paths we specified when we registered the containers:  `/web*/` requests go to our web service, and `/api*/` requests go to our API service.
+You can see that the ALB routes traffic appropriately based on the path we specified when we registered the container:  `/app*/` requests go to our app service.
 
 
 ## More in-depth logging with Cloudwatch
