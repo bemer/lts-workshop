@@ -113,7 +113,7 @@ Once you've added your log driver, add the Container Definition, and create the 
 
 ## Create your Services
 
-Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  **Create Cluster** option.
+Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  **Setting** https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#setting-up-the-cluster option.
 
 Next, you'll need to create your web service.  From the cluster detail page, choose **Services** > **Create**.
 
