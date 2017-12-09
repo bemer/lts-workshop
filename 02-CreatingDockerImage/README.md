@@ -80,8 +80,3 @@ This should return a list of all the currently running containers.  In this exam
 To test the actual container output, access the following URL in your web browser:
 
      http://localhost:3000/app
-
-
-This should return:
-
-     hi!  i'm served via Python + Flask.  i'm a web endpoint.
