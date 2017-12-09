@@ -91,12 +91,11 @@ To create the group, navigate to the IAM console, and select **Groups** > **Crea
 
 ![add IAM group](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/iam-group-permissions.png)
 
-Once you've created your group, you need to attach it to a user.  If you already have an existing user, you can add it to the lts-workshop group.  If you don't have a user, or need to create a new one, you can do so by going to **Users** > **Add User**:
+Once you've created your group, you need to attach it to a user.  If you already have an existing user, you can add it to the lts-workshop group.  If you don't have a user, or need to create a new one, you can do so by going to **Users** > **Add User**.
 
-![add new user](https://github.com/abby-fuller/ecs-demo/blob/master/images/new_iam_user.png)
+If you are creating a new user, name it to something like "**lts-workshop-user**", so it is going to be easy delete all the assets used in this lab later. In the wizard, add your user to the "**lts-workshop**" group that we created in the previous step:
 
-Name your user something like "**lts-workshop-user**".  From the next step in the wizard, add your user to the "**lts-workshop**" group that we created in the previous step:
+![add user to group](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/add-user-to-group.png)
 
-![add user to group](https://github.com/abby-fuller/ecs-demo/blob/master/images/add_user_iam_group.png)
 
 When the wizard finishes, make sure to copy or download your access key and secret key.  You'll need them in the next step.
