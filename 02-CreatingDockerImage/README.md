@@ -95,7 +95,7 @@ Once you've created your group, you need to attach it to a user.  If you already
 
 If you are creating a new user, name it to something like "**lts-workshop-user**", so it is going to be easy delete all the assets used in this lab later. In the wizard, add your user to the "**lts-workshop**" group that we created in the previous step:
 
-![add user to group](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/add-user-to-group.png)
+![add user to group](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/add_user_to_group.png)
 
 
 When the wizard finishes, make sure to copy or download your access key and secret key.  You'll need them in the next step.
