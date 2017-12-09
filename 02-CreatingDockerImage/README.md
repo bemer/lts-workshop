@@ -199,12 +199,12 @@ This step will take some minutes. When the command finishes, you should see some
 
 You can see your pushed images by viewing the repository in the AWS Console.  Alternatively, you can use the CLI:
 
-    $ aws ecr list-images --repository-name=lts-demo-app --profile lts-workshop
+    $ aws ecr list-images --repository-name=lts-demo-app --region us-east-1 --profile lts-workshop
     {
         "imageIds": [
             {
                 "imageTag": "latest",
-                "imageDigest": "sha256:f0819d27f73c7fa6329644efe8110644e23c248f2f3a9445cbbb6c84a01e108f"
-            }  
+                "imageDigest": "sha256:38588bb240b57d123522ab3d23107cec642907a99f1379445fbea27dafc58608"
+            }
         ]
     }
