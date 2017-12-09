@@ -89,7 +89,7 @@ In order to work with the AWS CLI, you'll need an IAM role with the proper permi
 
 To create the group, navigate to the IAM console, and select **Groups** > **Create New Group**.  Name the group "**lts-workshop**".  From the list of managed policies, add the following policies:
 
-![add IAM group](https://github.com/bemer/lts-workshop/blob/master/images/iam-group-permissions.png)
+![add IAM group](https://github.com/bemer/lts-workshop/02-CreatingDockerImage/images/iam-group-permissions.png)
 
 Once you've created your group, you need to attach it to a user.  If you already have an existing user, you can add it to the lts-workshop group.  If you don't have a user, or need to create a new one, you can do so by going to **Users** > **Add User**:
 
