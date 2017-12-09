@@ -155,7 +155,7 @@ You can see that the ALB routes traffic appropriately based on the path we speci
 
 ## More in-depth logging with Cloudwatch
 
-When we created our Container Definitions, we also added the awslogs driver, which sends logs to [Cloudwatch](https://aws.amazon.com/cloudwatch/).  You can see more details logs for your services by going to the Cloudwatch console, and selecting first our log group:
+When we created our Container Definitions, we also added the awslogs driver, which sends logs to [Cloudwatch](https://aws.amazon.com/cloudwatch/).  You can see more details logs for your service by going to the Cloudwatch console, and selecting first our log group:
 
 ![log group](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/loggroup.png)
 
