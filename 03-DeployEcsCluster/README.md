@@ -2,12 +2,15 @@
 
 **Quick jump:**
 
-* [Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#tutorial-overview)
-* [Creating your first image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-your-first-image)
-* [Setting up the IAM Roles](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#setting-up-the-iam-roles)
-* [Configuring the AWS CLI](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#configuring-the-aws-cli)
-* [Creating the Container registries with ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-the-container-registries-with-ecr)
-* [Pushing our tested images to ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#pushing-our-tested-images-to-ecr)
+* [Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#tutorial-overview)
+* [Creating the Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster)
+* [Creating the ALB](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-alb)
+* [Creating the Task Definition](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-task-definition)
+* [Creating the Service](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-service)
+* [Testing our service deployments from the console and the ALB](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#testing-our-service-deployments-from-the-console-and-the-alb)
+* [More in-depth logging with Cloudwatch](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#more-in-depth-logging-with-cloudwatch)
+* [That's a wrap!](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#thats-a-wrap)
+
 
 ## Tutorial overview
 
@@ -81,7 +84,7 @@ After creating your ALB, you need to update the security group rule so your ALB 
 
 
 
-## Create your Task Definition
+## Creating the Task Definition
 
 Before you can register a container to a service, it needs be a part of a Task Definition. Task Definitions define things like environment variables, the container image you wish to use, and the resources you want to allocate to the service (port, memory, CPU).  To create a Task Definition, choose **Task Definitions** from the ECS console menu.  Then, choose **Create new Task Definition**. Select EC2 as the *Launch type compatibility*:
 
@@ -111,7 +114,7 @@ Once you've specified your Port Mappings, scroll down and add a log driver.  The
 Once you've added your log driver, add the Container Definition, and create the Task Definition.
 
 
-## Create your Service
+## Creating the Service
 
 Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  [Creating the cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster).
 
