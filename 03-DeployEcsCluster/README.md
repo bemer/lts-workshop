@@ -45,7 +45,7 @@ You can them click in the button **View Cluster** to see your cluster.
 
 ## Creating the ALB
 
-Now that we've created our cluster, we need an Application Load Balancer (ALB)[https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/] to route traffic to our endpoints. Compared to a traditional load balancer, an ALB lets you direct traffic between different endpoints.  In our example, we'll use the enpoint:  `/app`.
+Now that we've created our cluster, we need an [Application Load Balancer (ALB)][https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/] to route traffic to our endpoints. Compared to a traditional load balancer, an ALB lets you direct traffic between different endpoints.  In our example, we'll use the enpoint:  `/app`.
 
 To create the ALB:
 
@@ -63,10 +63,11 @@ Next, select your VPC and add at least two subnets for high availability.  Make 
 
 ![add VPC](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/configure_alb.png)
 
-Next, add a security group.  If you ran the ECS first run wizard, you should have an existing group called something like **EC2ContainerService-lts-workshop-EcsSecurityGroup**.  If you don't have this, check you've chosen the correct VPC, as security groups are VPC specific.  If you still don't have this, you can create a new security groups with the following rule:
+Next, add a security group.  Here, let's create a security group to be used by your ALB. Change the **Security group name** to `lts-workshop-alb-sg` and create a rule allowing all traffic in the port `80`:
 
-    Ports	    Protocol	    Source
-     80	          tcp	       0.0.0.0/0
+![create alb security group](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/create_alb_sg.png)
+
+
 
 Choose the security group, and continue to the next step:  adding routing.  For this initial setup, we're just adding a dummy healthcheck on `/`.  We'll add specific healthchecks for our service endpoint when we register it with the ALB.
 
@@ -74,11 +75,12 @@ Choose the security group, and continue to the next step:  adding routing.  For 
 
 Finally, skip the "Register targets" step, and continue to review. If your values look correct, click **Create**.
 
-Note:  If you created your own security group, and only added a rule for port 80, you'll need to add one more.  Select your security group from the list > **Inbound** > **Edit** and add a rule to allow your ALB to access the port range for ECS (0-65535).  The final rules should look like:
+After creating your ALB, you need to update the security group rule so your ALB can access the EC2 instances where your containers will run. If you ran the ECS wizard to provision your cluster, you should have an existing group called something like **EC2ContainerService-lts-workshop-EcsSecurityGroup** listed under **VPC** > **Security Groups** - note that you can select your VPC in the top left corner of the VPC screen. Select your security group from the list > **Inbound** > **Edit** and add a rule to allow your ALB to access the port range for ECS (0-65535).  The final rules should look like:
 
      Type        Ports        Protocol        Source
      HTTP          80	        tcp	         0.0.0.0/0
-     All TCP      0-65535       tcp       <id of this security group>
+     All TCP      0-65535       tcp       <id of the ALB security group>
+
 
 
 ## Create your Task Definition
@@ -102,7 +104,7 @@ A few things to note here:
 
 - We've specified a specific container image, including the `:latest` tag.  Although it's not important for this demo, in a production environment where you were creating Task Definitions programmatically from a CI/CD pipeline, Task Definitions could include a specific SHA, or a more accurate tag.
 
-- Under **Port Mappings**, we've specified a **Container Port** (3000), but left **Host Port** as 0.  This was intentional, and is used to facilitate dynamic port allocation.  This means that we don't need to map the Container Port to a specific Host Port in our Container Definition-  instead, we can let the ALB allocate a port during task placement.  To learn more about port allocation, check out the [ECS documentation here](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html).
+- Under **Port Mappings**, we've specified a **Container Port** (3000), but left **Host Port** as 0.  This was intentional, and is used to facilitate dynamic port allocation.  This means that we don't need to map the Container Port to a specific Host Port in our Container Definition - instead, we can let the ALB allocate a port during task placement.  To learn more about port allocation, check out the [ECS documentation here](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html).
 
 Once you've specified your Port Mappings, scroll down and add a log driver.  There are a few options here, but for this demo, select **Auto-configure CloudWatch Logs**:
 
