@@ -75,11 +75,9 @@ Choose the security group, and continue to the next step:  adding routing.  For 
 
 Finally, skip the "Register targets" step, and continue to review. If your values look correct, click **Create**.
 
-After creating your ALB, you need to update the security group rule so your ALB can access the EC2 instances where your containers will run. If you ran the ECS wizard to provision your cluster, you should have an existing group called something like **EC2ContainerService-lts-workshop-EcsSecurityGroup** listed under **VPC** > **Security Groups** - note that you can select your VPC in the top left corner of the VPC screen. Select your security group from the list > **Inbound** > **Edit** and add a rule to allow your ALB to access the port range for ECS (0-65535).  The final rules should look like:
+After creating your ALB, you need to update the security group rule so your ALB can access the EC2 instances where your containers will run. If you ran the ECS wizard to provision your cluster, you should have an existing group called something like **EC2ContainerService-lts-workshop-EcsSecurityGroup** listed under **VPC** > **Security Groups** - note that you can select your VPC in the top left corner of the VPC screen. Select your security group from the list, click in **Inbound** > **Edit** and add a rule to allow your ALB to access the port range for ECS (0-65535).  The final rules should look like this (note the ALB security group ID):
 
-     Type        Ports        Protocol        Source
-     HTTP          80	        tcp	         0.0.0.0/0
-     All TCP      0-65535       tcp       <id of the ALB security group>
+![ec2 sg configuration](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/ec2_sg_configuration.png)
 
 
 
