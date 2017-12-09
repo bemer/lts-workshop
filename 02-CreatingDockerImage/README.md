@@ -1,6 +1,15 @@
 # Creating your docker image
 
-## Overview
+**Quick jump:**
+
+* [Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#tutorial-overview)
+* [Creating your first image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-your-first-image)
+* [Setting up the IAM Roles](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#setting-up-the-iam-roles)
+* [Configuring the AWS CLI](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#configuring-the-aws-cli)
+* [Creating the Container registries with ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-the-container-registries-with-ecr)
+* [Pushing our tested images to ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#pushing-our-tested-images-to-ecr)
+
+## Tutorial overview
 
 This tutorial is going to drive you through the process of creating your first docker image, running a docker image locally and pushing it to a image repository.
 
@@ -84,7 +93,7 @@ To test the actual container output, access the following URL in your web browse
      http://localhost:3000/app
 
 
-## Setting up your IAM roles
+## Setting up the IAM roles
 
 In order to work with the AWS CLI, you'll need an IAM role with the proper permissions set up.  To do this, we'll create both an IAM Group, and an IAM user.
 
