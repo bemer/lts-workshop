@@ -2,14 +2,14 @@
 
 **Quick jump:**
 
-* [Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#tutorial-overview)
-* [Creating your first image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-your-first-image)
-* [Setting up the IAM Roles](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#setting-up-the-iam-roles)
-* [Configuring the AWS CLI](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#configuring-the-aws-cli)
-* [Creating the Container registries with ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-the-container-registries-with-ecr)
-* [Pushing our tested images to ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#pushing-our-tested-images-to-ecr)
+* [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#tutorial-overview)
+* [2. Creating your first image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-your-first-image)
+* [3. Setting up the IAM Roles](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#setting-up-the-iam-roles)
+* [4. Configuring the AWS CLI](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#configuring-the-aws-cli)
+* [5. Creating the Container registries with ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-the-container-registries-with-ecr)
+* [6. Pushing our tested images to ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#pushing-our-tested-images-to-ecr)
 
-## Tutorial overview
+## 1. Tutorial overview
 
 This tutorial is going to drive you through the process of creating your first Docker image, running a Docker image locally and pushing it to a image repository.
 
@@ -41,7 +41,7 @@ This should return something like:
 
 If you have completed these steps, you are good to go!
 
-## Creating your first image
+## 2. Creating your first image
 
 Clone this repository:
 
@@ -93,7 +93,7 @@ To test the actual container output, access the following URL in your web browse
      http://localhost:3000/app
 
 
-## Setting up the IAM roles
+## 3. Setting up the IAM roles
 
 In order to work with the AWS CLI, you'll need an IAM role with the proper permissions set up.  To do this, we'll create both an IAM Group, and an IAM user.
 
@@ -110,7 +110,7 @@ If you are creating a new user, name it to something like "**lts-workshop-user**
 
 When the wizard finishes, make sure to copy or download your access key and secret key.  You'll need them in the next step.
 
-## Configuring the AWS CLI
+## 4. Configuring the AWS CLI
 
 If you've never configured the AWS CLI, the easiest way is by running:
 
@@ -164,7 +164,7 @@ Note:  if you are running Ubuntu, it is possible that you will need to preface y
 
 If you are unable to login to ECR, check your IAM user group permissions.
 
-## Creating the container registries with ECR
+## 5. Creating the container registries with ECR
 
 Before we can build and push our images, we need somewhere to push them to.  In this case, we're going to create two repositories in [ECR](https://aws.amazon.com/ecr/).
 
@@ -178,7 +178,7 @@ Once you've created the repository, it will display the push commands.  Take not
 
 ![push commands](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/push_commands.png)
 
-## Pushing our tested images to ECR
+## 6. Pushing our tested images to ECR
 
 Now that we've tested our images locally, we need to tag them again, and push them to ECR.  This will allow us to use them in TaskDefinitions that can be deployed to an ECS cluster.  
 
