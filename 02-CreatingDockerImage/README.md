@@ -157,4 +157,16 @@ Note:  if you are running Ubuntu, it is possible that you will need to preface y
 
 If you are unable to login to ECR, check your IAM user group permissions.
 
-## Uploading your image to ECR
+## Creating the container registries with ECR
+
+Before we can build and push our images, we need somewhere to push them to.  In this case, we're going to create two repositories in [ECR](https://aws.amazon.com/ecr/).
+
+To create a repository, navigate to the ECS console, and select **Repositories**.  From there, choose **Create repository**.
+
+Name your first repository **lts-demo-app**:
+
+![create ecr repository](https://github.com/abby-fuller/ecs-demo/blob/master/images/ECR_repo_setup.png)
+
+Once you've created the repository, it will display the push commands.  Take note of these, as you'll need them in the next step.  The push commands should like something like this:
+
+![push commands](https://github.com/abby-fuller/ecs-demo/blob/master/images/push_commands.png)
