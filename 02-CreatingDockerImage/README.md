@@ -165,8 +165,8 @@ To create a repository, navigate to the ECS console, and select **Repositories**
 
 Name your first repository **lts-demo-app**:
 
-![create ecr repository](https://github.com/abby-fuller/ecs-demo/blob/master/images/ECR_repo_setup.png)
+![create ecr repository](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/creating_repository.png)
 
 Once you've created the repository, it will display the push commands.  Take note of these, as you'll need them in the next step.  The push commands should like something like this:
 
-![push commands](https://github.com/abby-fuller/ecs-demo/blob/master/images/push_commands.png)
+![push commands](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/push_commands.png)
