@@ -17,7 +17,9 @@ To check if you have the AWS CLI installed and configured:
 This should return something like:
 
     $ aws --version
-    aws-cli/1.11.36 Python/2.7.13 Darwin/16.4.0 botocore/1.4.93
+    aws-cli/1.14.7 Python/2.7.12 Darwin/15.6.0 botocore/1.8.11
+
+> Note that to run this tutorial, you need to have the most recent version of AWS CLI installed.
 
 To check if you have Docker installed:
 
@@ -99,3 +101,45 @@ If you are creating a new user, name it to something like "**lts-workshop-user**
 
 
 When the wizard finishes, make sure to copy or download your access key and secret key.  You'll need them in the next step.
+
+### Configuring the AWS CLI
+
+If you've never configured the AWS CLI, the easiest way is by running:
+
+    $ aws configure
+
+This should drop you into a setup wizard:
+
+    $ aws configure
+    AWS Access Key ID [****************K2JA]:
+    AWS Secret Access Key [****************Oqx+]:
+    Default region name [us-east-1]:
+    Default output format [json]:
+
+If you already have a profile setup with the AWS CLI, you can also add a new profile to your credentials file. In order to add another profile, edit your credentials (usually located in *~/.aws/credentials*) and add a new profile called "**lts-workshop**". After adding this new profile, your credentials file will be like this:
+
+    [default]
+    aws_access_key_id = AKIAKSJF4ICN787JSCYA
+    aws_secret_access_key = BQBy2lJ/p8s4lPKjoa7vYhTAh3lmUM59pf1zyokx
+
+    [lts-workshop]
+    aws_access_key_id = AKIAJKSJ2SXZFV7ABLDQ
+    aws_secret_access_key = YCFxyhMI57fOb9wokfBR3TqxNu4h29L1P6gMdKTp
+
+
+You can test that your IAM user has the correct permissions, and that your CLI is setup to connect to your AWS account by running the command to obtain an ECR authentication token.  This will allow us to pull our registries in the next step:
+
+    $ aws ecr get-login --region us-east-1 --profile lts-workshop
+
+This should output something like:
+
+    $ docker login -u AWS -p AQECAHhwm0YaISJeRtJm5n1G6uqeekXuoXXPe5UFce9Rq8/14wAAAy0wggMpBgkqhkiG9w0BBwagggMaMIIDFgIBADCCAw8GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM+76slnFaYrrZwLJyAgEQgIIC4LJKIDmvEDtJyr7jO661//6sX6cb2jeD/RP0IA03wh62YxFKqwRMk8gjOAc89ICxlNxQ6+cvwjewi+8/W+9xbv5+PPWfwGSAXQJSHx3IWfrbca4WSLXQf2BDq0CTtDc0+payiDdsXdR8gzvyM7YWIcKzgcRVjOjjoLJpXemQ9liPWe4HKp+D57zCcBvgUk131xCiwPzbmGTZ+xtE1GPK0tgNH3t9N5+XA2BYYhXQzkTGISVGGL6Wo1tiERz+WA2aRKE+Sb+FQ7YDDRDtOGj4MwZ3/uMnOZDcwu3uUfrURXdJVddTEdS3jfo3d7yVWhmXPet+3qwkISstIxG+V6IIzQyhtq3BXW/I7pwZB9ln/mDNlJVRh9Ps2jqoXUXg/j/shZxBPm33LV+MvUqiEBhkXa9cz3AaqIpc2gXyXYN3xgJUV7OupLVq2wrGQZWPVoBvHPwrt/DKsNs28oJ67L4kTiRoufye1KjZQAi3FIPtMLcUGjFf+ytxzEPuTvUk4Xfoc4A29qp9v2j98090Qx0CHD4ZKyj7bIL53jSpeeFDh9EXubeqp6idIwG9SpIL9AJfKxY7essZdk/0i/e4C+481XIM/IjiVkh/ZsJzuAPDIpa8fPRa5Gc8i9h0bioSHgYIpMlRkVmaAqH/Fmk+K00yG8USOAYtP6BmsFUvkBqmRtCJ/Sj+MHs+BrSP7VqPbO1ppTWZ6avl43DM0blG6W9uIxKC9SKBAqvPwr/CKz2LrOhyqn1WgtTXzaLFEd3ybilqhrcNtS16I5SFVI2ihmNbP3RRjmBeA6/QbreQsewQOfSk1u35YmwFxloqH3w/lPQrY1OD+kySrlGvXA3wupq6qlphGLEWeMC6CEQQKSiWbbQnLdFJazuwRUjSQlRvHDbe7XQTXdMzBZoBcC1Y99Kk4/nKprty2IeBvxPg+NRzg+1e0lkkqUu31oZ/AgdUcD8Db3qFjhXz4QhIZMGFogiJcmo= -e none https://<account_id>.dkr.ecr.us-east-1.amazonaws.com
+
+To login to ECR, copy and paste that output or just run `` `aws ecr get-login --region us-east-1 --profile lts-workshop` `` which will tell your shell to execute the output of that command.  That should return something like:
+
+    WARNING: login credentials saved in /home/vagrant/.dockercfg.
+    Login Succeeded
+
+Note:  if you are running Ubuntu, it is possible that you will need to preface your Docker commands with `sudo`.  For more information on this, see the [Docker documentation](https://docs.docker.com/engine/installation/linux/ubuntu/).
+
+If you are unable to login to ECR, check your IAM user group permissions.
