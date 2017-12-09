@@ -80,3 +80,23 @@ This should return a list of all the currently running containers.  In this exam
 To test the actual container output, access the following URL in your web browser:
 
      http://localhost:3000/app
+
+## Uploading your image to ECR
+
+### Setting up your IAM roles
+
+In order to work with the AWS CLI, you'll need an IAM role with the proper permissions set up.  To do this, we'll create both an IAM Group, and an IAM user.
+
+To create the group, navigate to the IAM console, and select **Groups** > **Create New Group**.  Name the group "**lts-workshop**".  From the list of managed policies, add the following policies:
+
+![add IAM group](https://github.com/bemer/lts-workshop/blob/master/images/iam-group-permissions.png)
+
+Once you've created your group, you need to attach it to a user.  If you already have an existing user, you can add it to the lts-workshop group.  If you don't have a user, or need to create a new one, you can do so by going to **Users** > **Add User**:
+
+![add new user](https://github.com/abby-fuller/ecs-demo/blob/master/images/new_iam_user.png)
+
+Name your user something like "**lts-workshop-user**".  From the next step in the wizard, add your user to the "**lts-workshop**" group that we created in the previous step:
+
+![add user to group](https://github.com/abby-fuller/ecs-demo/blob/master/images/add_user_iam_group.png)
+
+When the wizard finishes, make sure to copy or download your access key and secret key.  You'll need them in the next step.
