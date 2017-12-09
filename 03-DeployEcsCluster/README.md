@@ -61,7 +61,7 @@ Name your ALB **lts-workshop** and add an HTTP listener on port 80:
 
 Next, select your VPC and add at least two subnets for high availability.  Make sure to choose the VPC that we created with the ECS wizard.  If you have multiple VPC, and you're not sure which VPC is the correct one, you can find its ID from the VPC console.
 
-![add VPC](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/configure_elb.png)
+![add VPC](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/configure_alb.png)
 
 Next, add a security group.  If you ran the ECS first run wizard, you should have an existing group called something like **EC2ContainerService-lts-workshop-EcsSecurityGroup**.  If you don't have this, check you've chosen the correct VPC, as security groups are VPC specific.  If you still don't have this, you can create a new security groups with the following rule:
 
