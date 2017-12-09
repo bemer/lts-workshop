@@ -2,17 +2,17 @@
 
 **Quick jump:**
 
-* [Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#tutorial-overview)
-* [Creating the Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster)
-* [Creating the ALB](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-alb)
-* [Creating the Task Definition](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-task-definition)
-* [Creating the Service](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-service)
-* [Testing our service deployments from the console and the ALB](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#testing-our-service-deployments-from-the-console-and-the-alb)
-* [More in-depth logging with Cloudwatch](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#more-in-depth-logging-with-cloudwatch)
-* [That's a wrap!](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#thats-a-wrap)
+* [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#tutorial-overview)
+* [2. Creating the Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster)
+* [3. Creating the ALB](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-alb)
+* [4. Creating the Task Definition](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-task-definition)
+* [5. Creating the Service](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-service)
+* [6. Testing our service deployments from the console and the ALB](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#testing-our-service-deployments-from-the-console-and-the-alb)
+* [7. More in-depth logging with Cloudwatch](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#more-in-depth-logging-with-cloudwatch)
+* [8. That's a wrap!](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#thats-a-wrap)
 
 
-## Tutorial overview
+## 1. Tutorial overview
 
 This tutorial will guide you through the creation of an AWS ECS Cluster and the deployment of a container with a simple Python application created in the previous lab.
 
@@ -22,7 +22,7 @@ In order to run this tutorial, you must have completed the following steps:
 * [Creating your Docker image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage)
 
 
-## Creating the Cluster
+## 2. Creating the Cluster
 
 Once you've signed into your AWS account, navigate to the [ECS console](https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters). This URL will redirect you to the ECS interface. If this is your fist time using this service, you will see the "*Clusters*" screen without any clusters in it:
 
@@ -46,7 +46,7 @@ When the creation process finishes, you will see the following screen:
 
 You can them click in the button **View Cluster** to see your cluster.
 
-## Creating the ALB
+## 3. Creating the ALB
 
 Now that we've created our cluster, we need an [Application Load Balancer (ALB)][https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/] to route traffic to our endpoints. Compared to a traditional load balancer, an ALB lets you direct traffic between different endpoints.  In our example, we'll use the enpoint:  `/app`.
 
@@ -84,7 +84,7 @@ After creating your ALB, you need to update the security group rule so your ALB 
 
 
 
-## Creating the Task Definition
+## 4. Creating the Task Definition
 
 Before you can register a container to a service, it needs be a part of a Task Definition. Task Definitions define things like environment variables, the container image you wish to use, and the resources you want to allocate to the service (port, memory, CPU).  To create a Task Definition, choose **Task Definitions** from the ECS console menu.  Then, choose **Create new Task Definition**. Select EC2 as the *Launch type compatibility*:
 
@@ -114,7 +114,7 @@ Once you've specified your Port Mappings, scroll down and add a log driver.  The
 Once you've added your log driver, add the Container Definition, and create the Task Definition.
 
 
-## Creating the Service
+## 5. Creating the Service
 
 Navigate back to the ECS console, and choose the cluster that you created during the first run wizard.  This should be named **lts-workshop**.  If you don't have a cluster named **lts-workshop**, create one following the procedures in  [Creating the cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#creating-the-cluster).
 
@@ -143,7 +143,7 @@ If the values look correct, click **Next Step**.
 Since we will not use Auto Scaling in this tutorial, in the **Set Auto Scaling** screen, just click in **Next Step** and after reviewing your configurations, click in **Create Service**.
 
 
-## Testing our service deployments from the console and the ALB
+## 6. Testing our service deployments from the console and the ALB
 
 You can see service level events from the ECS console.  This includes deployment events. You can test that of your service deployed, and registered properly with the ALB by looking at the service's **Events** tab:
 
@@ -156,7 +156,7 @@ We can also test from the ALB itself.  To find the DNS A record for your ALB, na
 You can see that the ALB routes traffic appropriately based on the path we specified when we registered the container:  `/app*/` requests go to our app service.
 
 
-## More in-depth logging with Cloudwatch
+## 7. More in-depth logging with Cloudwatch
 
 When we created our Container Definitions, we also added the awslogs driver, which sends logs to [Cloudwatch](https://aws.amazon.com/cloudwatch/).  You can see more details logs for your service by going to the Cloudwatch console, and selecting first our log group:
 
@@ -166,6 +166,6 @@ And then choosing an individual stream:
 
 ![event streams](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/event_streams.png)
 
-## That's a wrap!
+## 8. That's a wrap!
 
 Congratulations!  You've deployed an ECS Cluster with two working endpoints.  
