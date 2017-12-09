@@ -1,4 +1,4 @@
-# Creating your docker image
+# Creating your Docker image
 
 **Quick jump:**
 
@@ -11,7 +11,7 @@
 
 ## Tutorial overview
 
-This tutorial is going to drive you through the process of creating your first docker image, running a docker image locally and pushing it to a image repository.
+This tutorial is going to drive you through the process of creating your first Docker image, running a Docker image locally and pushing it to a image repository.
 
 In this tutorial, we assume that you completed the "Setup Environment" tutorial and:
 
@@ -32,12 +32,12 @@ This should return something like:
 
 To check if you have Docker installed:
 
-    $  which docker
+    $  which Docker
 
 This should return something like:
 
-    $ which docker
-    /usr/bin/docker
+    $ which Docker
+    /usr/bin/Docker
 
 If you have completed these steps, you are good to go!
 
@@ -47,7 +47,7 @@ Clone this repository:
 
     $ git clone git@github.com:bemer/lts-workshop.git
 
-Now we are going to build and test our containers locally.  If you've never worked with Docker before, there are a few basic commands that we'll use in this workshop, but you can find a more thorough list in the [Docker "Getting Started" documentation](https://docs.docker.com/engine/getstarted/).
+Now we are going to build and test our containers locally.  If you've never worked with Docker before, there are a few basic commands that we'll use in this workshop, but you can find a more thorough list in the [Docker "Getting Started" documentation](https://docs.Docker.com/engine/getstarted/).
 
 To start your first container, go to the `app` directory in the project:
 
@@ -55,11 +55,11 @@ To start your first container, go to the `app` directory in the project:
 
 And run the following command to build your image:
 
-    $ docker build -t lts-demo-app .
+    $ Docker build -t lts-demo-app .
 
 This should output steps that look something like this:
 
-    $ docker build -t lts-demo-app .
+    $ Docker build -t lts-demo-app .
     Sending build context to Docker daemon  4.608kB
     Step 1/9 : FROM ubuntu:latest
      ---> 20c44cd7596f
@@ -77,11 +77,11 @@ If the container builds successfully, the output should end with something like 
 
 To run your container:
 
-     $  docker run -d -p 3000:3000 lts-demo-app
+     $  Docker run -d -p 3000:3000 lts-demo-app
 
 To check if your container is running:
 
-     $ docker ps
+     $ Docker ps
 
 This should return a list of all the currently running containers.  In this example,  it should just return a single container, the one that we just started:
 
@@ -141,7 +141,7 @@ You can test that your IAM user has the correct permissions, and that your CLI i
 
 This should output something like:
 
-    $ docker login -u AWS -p AQECAHhwm0YaISJeRtJm5n1G6uqeekXuoXXPe5UFce9Rq8/14wAAAy0wggMpBgkqhkiG9w0BBwagggMaM
+    $ Docker login -u AWS -p AQECAHhwm0YaISJeRtJm5n1G6uqeekXuoXXPe5UFce9Rq8/14wAAAy0wggMpBgkqhkiG9w0BBwagggMaM
     IIDFgIBADCCAw8GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM+76slnFaYrrZwLJyAgEQgIIC4LJKIDmvEDtJyr7jO661//6sX6cb2je
     D/RP0IA03wh62YxFKqwRMk8gjOAc89ICxlNxQ6+cvwjewi+8/W+9xbv5+PPWfwGSAXQJSHx3IWfrbca4WSLXQf2BDq0CTtDc0+payiDdsX
     dR8gzvyM7YWIcKzgcRVjOjjoLJpXemQ9liPWe4HKp+D57zCcBvgUk131xCiwPzbmGTZ+xtE1GPK0tgNH3t9N5+XA2BYYhXQzkTGISVGGL6
@@ -152,7 +152,7 @@ This should output something like:
     https://<account_id>.dkr.ecr.us-east-1.amazonaws.com
 
 
-> Specify if the '-e' flag should be included in the 'docker login' command. The '-e' option has been deprecated and is removed in docker version 17.06 and later. You must specify --no-include-email if you're using docker version 17.06 or later. The default behavior is to include the '-e' flag in the 'docker login' output.
+> Specify if the '-e' flag should be included in the 'Docker login' command. The '-e' option has been deprecated and is removed in Docker version 17.06 and later. You must specify --no-include-email if you're using Docker version 17.06 or later. The default behavior is to include the '-e' flag in the 'Docker login' output.
 
 
 To login to ECR, copy and paste that output or just run `` `aws ecr get-login --region us-east-1 --no-include-email --profile lts-workshop` `` which will tell your shell to execute the output of that command.  That should return something like:
@@ -160,7 +160,7 @@ To login to ECR, copy and paste that output or just run `` `aws ecr get-login --
     WARNING! Using --password via the CLI is insecure. Use --password-stdin.
     Login Succeeded
 
-Note:  if you are running Ubuntu, it is possible that you will need to preface your Docker commands with `sudo`.  For more information on this, see the [Docker documentation](https://docs.docker.com/engine/installation/linux/ubuntu/).
+Note:  if you are running Ubuntu, it is possible that you will need to preface your Docker commands with `sudo`.  For more information on this, see the [Docker documentation](https://docs.Docker.com/engine/installation/linux/ubuntu/).
 
 If you are unable to login to ECR, check your IAM user group permissions.
 
@@ -186,10 +186,10 @@ You'll need your push commands that you saw during registry creation.  If you've
 
 To tag and push the web repository:
 
-    $ docker tag lts-demo-app:latest <account_id>.dkr.ecr.us-east-1.amazonaws.com/lts-demo-app:latest
-    $ docker push <account_id>.dkr.ecr.us-east-1.amazonaws.com/lts-demo-app:latest
+    $ Docker tag lts-demo-app:latest <account_id>.dkr.ecr.us-east-1.amazonaws.com/lts-demo-app:latest
+    $ Docker push <account_id>.dkr.ecr.us-east-1.amazonaws.com/lts-demo-app:latest
 
-> Why `:latest`?  This is the actual image tag.  In most production environments, you'd tag images for different schemes:  for example, you might tag the most up-to-date image with `:latest`, and all other versions of the same container with a commit SHA from a CI job.  If you push an image without a specific tag, it will default to `:latest`, and untag the previous image with that tag.  For more information on Docker tags, see the Docker [documentation](https://docs.docker.com/engine/getstarted/step_six/).
+> Why `:latest`?  This is the actual image tag.  In most production environments, you'd tag images for different schemes:  for example, you might tag the most up-to-date image with `:latest`, and all other versions of the same container with a commit SHA from a CI job.  If you push an image without a specific tag, it will default to `:latest`, and untag the previous image with that tag.  For more information on Docker tags, see the Docker [documentation](https://docs.Docker.com/engine/getstarted/step_six/).
 
 
 This step will take some minutes. When the command finishes, you should see something like this:
