@@ -148,7 +148,7 @@ You can see service level events from the ECS console.  This includes deployment
 
 We can also test from the ALB itself.  To find the DNS A record for your ALB, navigate to the EC2 Console > **Load Balancers** > **Select your Load Balancer**.  Under **Description**, you can find details about your ALB, including a section for **DNS Name**.  You can enter this value in your browser, and append the endpoint of your service, to see your ALB and ECS Cluster in action:
 
-![alb web test](https://github.com/abby-fuller/ecs-demo/blob/master/images/alb_app_response.png)
+![alb web test](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/alb_app_response.png)
 
 You can see that the ALB routes traffic appropriately based on the path we specified when we registered the container:  `/app*/` requests go to our app service.
 
@@ -157,11 +157,11 @@ You can see that the ALB routes traffic appropriately based on the path we speci
 
 When we created our Container Definitions, we also added the awslogs driver, which sends logs to [Cloudwatch](https://aws.amazon.com/cloudwatch/).  You can see more details logs for your services by going to the Cloudwatch console, and selecting first our log group:
 
-![log group](https://github.com/abby-fuller/ecs-demo/blob/master/images/loggroups.png)
+![log group](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/loggroup.png)
 
 And then choosing an individual stream:
 
-![event streams](https://github.com/abby-fuller/ecs-demo/blob/master/images/event_streams.png)
+![event streams](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/event_streams.png)
 
 ## That's a wrap!
 
