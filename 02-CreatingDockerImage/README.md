@@ -45,7 +45,7 @@ If you have completed these steps, you are good to go!
 
 Clone this repository:
 
-    $ git clone git@github.com:bemer/lts-workshop.git
+    $ git clone git clone https://github.com/bemer/lts-workshop.git
 
 Now we are going to build and test our containers locally.  If you've never worked with Docker before, there are a few basic commands that we'll use in this workshop, but you can find a more thorough list in the [Docker "Getting Started" documentation](https://docs.docker.com/engine/getstarted/).
 
