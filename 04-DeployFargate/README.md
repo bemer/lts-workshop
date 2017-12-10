@@ -2,12 +2,15 @@
 
 **Quick jump:**
 
-* [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#tutorial-overview)
-* [2. Creating your first image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-your-first-image)
-* [3. Setting up the IAM Roles](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#setting-up-the-iam-roles)
-* [4. Configuring the AWS CLI](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#configuring-the-aws-cli)
-* [5. Creating the Container registries with ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#creating-the-container-registries-with-ecr)
-* [6. Pushing our tested images to ECR](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#pushing-our-tested-images-to-ecr)
+* [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#1-tutorial-overview)
+* [2. Provisioning the infrastructure](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#2-provisioning-the-infrastructure)
+* [3. Building the Docker images](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#3-building-the-docker-images)
+* [4. Pushing the images to ECR](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#4-pushing-the-images-to-ecr)
+* [5. Creating the Cluster](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#5-creating-the-cluster)
+* [6. Creating the Task Definition](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#6-creating-the-task-definition)
+* [7. Deploying the application](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#7-deploying-the-application)
+* [8. Acessing the application](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#8-acessing-the-application)
+
 
 ## 1. Tutorial overview
 
@@ -109,7 +112,7 @@ Them, using your browser, access the url http://localhost. You will see the scor
 ![scorekeep front local](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/scorekeep-frontend-local.png)
 
 
-## 4. Pushing your images to ECR
+## 4. Pushing the images to ECR
 
 After creating your images, go to the ECS console, under **Repositories** and create a new one called `scorekeep-api`:
 
