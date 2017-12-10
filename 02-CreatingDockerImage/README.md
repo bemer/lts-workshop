@@ -1,5 +1,8 @@
 # Creating your Docker image
 
+![docker logo](https://github.com/bemer/lts-workshop/blob/master/02-CreatingDockerImage/images/docker_logo.png)
+
+
 **Quick jump:**
 
 * [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#tutorial-overview)
