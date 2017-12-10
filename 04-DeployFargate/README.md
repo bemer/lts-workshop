@@ -1,4 +1,4 @@
-# Deployng an application with AWS Fargate
+# Deploying an application with AWS Fargate
 
 ![aws fargate logo](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/aws_fargate_logoquer.png)
 
