@@ -56,11 +56,11 @@ Go to the IAM console, select **Policies** and click in **Create policy**. Selec
                 "Effect": "Allow",
                 "Action": "dynamodb:\*",
                 "Resource": [
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-game\*",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-move\*",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-session\*",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-state\*",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-user\*"
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-game*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-move*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-session*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-state*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-user*"
                 ]
             }
         ]
