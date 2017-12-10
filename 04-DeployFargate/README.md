@@ -11,6 +11,7 @@
 * [7. Deploying the application](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#7-deploying-the-application)
 * [8. Acessing the application](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#8-acessing-the-application)
 
+------
 
 ## 1. Tutorial overview
 
