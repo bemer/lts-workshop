@@ -196,3 +196,21 @@ In **Container name** insert `scorekeep-frontend`, in **Image** the URL of your 
 After adding both containers, click in **Create**:
 
 ![creating task](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/creating_task.png)
+
+## 7. Deploying the application
+
+In the ECS console, click in **Clusters** and them click in the **lts-scorekeep-app** cluster that we created earlier. Under the **Services** tab, click in **Create**:
+
+![service create](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/service_create.png)
+
+Select **FARGATE** as the **Launch type** and select the **Task definition** `lts-scorekeep-app:1` that we just created. Under **Platform version** select `LATEST` and note that the cluster `lts-scorekeep-app` will be selected under **Cluster**. Don't change it. Add `lts-scorekeep-app` in **Service name** and set the number of tasks to `1`, them click in **Next step**:
+
+![configure service](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_service.png)
+
+Select the VPC where you want to run your containers and the subnets that you want to use. After, click in **Edit** to edit your security group rules:
+
+![configure network](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_network.png)
+
+Change the type of the rule to `Custom TCP` and add `8080` in **Port range**. This is because the frontend container is going to expose the port 8080 instead of 80. Click in **Save**:
+
+![configure security group](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_security_group.png)
