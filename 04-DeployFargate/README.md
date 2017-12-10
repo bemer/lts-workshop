@@ -1,4 +1,4 @@
-# Deployng an application with Fargate
+# Deployng an application with AWS Fargate
 
 **Quick jump:**
 
