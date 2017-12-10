@@ -2,9 +2,7 @@
 
 # Welcome to the LTS Container Track
 
-Hello and welcome to the Latam Tech Summit 2017 - Container Track day!
-
-This is obviously the most awaited day of the event. We know it... So here are a few things that you should know before you start:
+Hello and welcome to the Latam Tech Summit 2017 - Container Track day! This is obviously the most awaited day of the event. We know it... So here are a few things that you should know before you start:
 
 ## 1) It's all about containers!
 
