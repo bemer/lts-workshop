@@ -1,6 +1,6 @@
 # Deployng an application with AWS Fargate
 
-![aws fargate logo](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/aws_fargate_logo.png)
+![aws fargate logo](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/aws_fargate_logoquer.png)
 
 
 **Quick jump:**
@@ -214,7 +214,7 @@ Select **FARGATE** as the **Launch type** and select the **Task definition** `lt
 
 ![configure service](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_service.png)
 
-Select the VPC where you want to run your containers and the subnets that you want to use. After, click in **Edit** to edit your security group rules:
+Select the VPC where you want to run your containers and the public subnets that you want to use. After, click in **Edit** to edit your security group rules:
 
 ![configure network](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_network.png)
 
