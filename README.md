@@ -10,13 +10,13 @@ We will walk you through the very basics of containers: from installing and conf
 
 ## 2) Please, run this lab in the exactly order as follows: 
 
-[Setup Environment](https://github.com/bemer/lts-workshop/tree/master/01-SetupEnvironment)
+[Setup Environments](https://github.com/bemer/lts-workshop/tree/master/01-SetupEnvironment)
 
-[Creating A Docker Image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage)
+[Creating Your Docker Image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage)
 
-[Deploying Into A ECS Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster)
+[Running An ECS Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster)
 
-[Deploying Containers Into AWS Fargate](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate)
+[Deploying An Application with AWS Fargate](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate)
 
 ## 3) If you are using a Windows machine (srsly?) 
 
