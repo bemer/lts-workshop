@@ -14,7 +14,7 @@ From 01-SetupEnvironment till 04-DeployFargate, without skipping any tutorial.
 
 ## 3) If you are using a Windows machine (srsly?) 
 
-We strongly recommend to spin up a Linux EC2 instance. None of these labs were even tested in Windows environments.
+We strongly recommend you to spin up a Linux EC2 instance. None of these labs were even tested in Windows environments.
 
 ## 4) This is not everything we have for today. There's more!
 
