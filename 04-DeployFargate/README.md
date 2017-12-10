@@ -107,7 +107,7 @@ Let's now create our frontend image. Go to the `scorekeep-frontend` directory an
 
 After the image is built, you can test locally. In order to execute this test, use the following command:
 
-    docker run -p 80:8080 scorekeepe-frontend
+    docker run -p 80:8080 scorekeep-frontend
 
 Then, using your browser, access the url http://localhost. You will see the scorekeep frontend interface:
 
