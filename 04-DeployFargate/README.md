@@ -49,11 +49,11 @@ Go to the IAM console, select **Policies** and click in **Create policy**. Selec
                 "Effect": "Allow",
                 "Action": "dynamodb:\*",
                 "Resource": [
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-game",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-move",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-session",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-state",
-                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-user"
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-game\*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-move\*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-session\*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-state\*",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-user\*"
                 ]
             }
         ]
@@ -203,7 +203,7 @@ In the ECS console, click in **Clusters** and them click in the **lts-scorekeep-
 
 ![service create](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/service_create.png)
 
-Select **FARGATE** as the **Launch type** and select the **Task definition** `lts-scorekeep-app:1` that we just created. Under **Platform version** select `LATEST` and note that the cluster `lts-scorekeep-app` will be selected under **Cluster**. Don't change it. Add `lts-scorekeep-app` in **Service name** and set the number of tasks to `1`, them click in **Next step**:
+Select **FARGATE** as the **Launch type** and select the **Task definition** `lts-scorekeep-app:1` that we just created. Under **Platform version** select `LATEST`. Note that the cluster `lts-scorekeep-app` will be selected under **Cluster**. Don't change it. Add `lts-scorekeep-app` in **Service name** and set the number of tasks to `1`, them click in **Next step**:
 
 ![configure service](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_service.png)
 
@@ -214,3 +214,35 @@ Select the VPC where you want to run your containers and the subnets that you wa
 Change the type of the rule to `Custom TCP` and add `8080` in **Port range**. This is because the frontend container is going to expose the port 8080 instead of 80. Click in **Save**:
 
 ![configure security group](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/configure_security_group.png)
+
+Leave the **Auto-assign public IP** as `ENABLED` and click in **Next step**. In this lab, we will not be using a load balancer.
+
+In the **Set Auto Scaling (optional)** scree, just click in **Next step** and finally, click in **Create service** on the **Review** screen:
+
+![service review](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/service_review.png)
+
+## 8. Acessing the application
+
+After creating your service, wait a few seconds, so the ENI will be created and your containers will be executed. When finished, you will be able to see the number of running tasks in the `lts-scorekeep-app` Cluster screen:
+
+![running tasks](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/running_tasks.png)
+
+Click in **Tasks** and them click in the Task ID. You will be redirected to a screen that shows all the infomation about your running task:
+
+![task information](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_information.png)
+
+In this screen, click in the **ENI Id**. You will be redirected to the ENI screen. Here, get the **IPv4 Public IP**. This is the IP Address that you will use to access your application:
+
+![eni information](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/eni_information.png)
+
+Open your Firefox browser and navigate to this IP in the port 8080. You should be able to access and interact with your application:
+
+![application access](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/application_access.png)
+
+> For some reason this application is not working when accessed from Google Chrome. since we don't had enough time to fix it, let's use the Firefox browser. When fixing the problem, we will update this tutorial.
+
+Click in **Create** them give a name to your game, select **Tic Tac Toe** under **Rules** and them click in **Create**. A new button will appear. Click in **Play** and start playing:
+
+![game creation](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/game_creation.png)
+
+After starting your game and making a few movements in it, you should be able to see some information about your games in your DynamoDB tables. 
