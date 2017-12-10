@@ -84,11 +84,7 @@ Just after this, we are adding the `scorekeep-api-1.0.0.jar` to our container. T
 
 We are them setting a few environment variables, exposing the port 5000 and informing the entrypoint for this container.
 
-After provisioning this container, go to the ECS console, under **Repositories** and create a new one called `scorekeep-api` and follow the procedures to push your image `scorekeep-api`. If you don't remember how to upload your image, follow the same steps described in the [`02-CreatingDockerImage`](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage#pushing-our-tested-images-to-ecr) tutorial. Remember to use the `scorekeep-api` as your image name.
-
-Let's now create our frontend image.
-
-Go to the `scorekeep-frontend` directory and run the following command:
+Let's now create our frontend image. Go to the `scorekeep-frontend` directory and run the following command:
 
     docker build -t scorekeep-frontend .
 
@@ -99,3 +95,47 @@ After building the image, you can test it to see if it runs locally. In order to
 Them, using your browser, access the url http://localhost. You will see the scorekeep frontend interface:
 
 ![scorekeep front local](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/scorekeep-frontend-local.png)
+
+
+## 4. Pushing your images to ECR
+
+After creating your images, go to the ECS console, under **Repositories** and create a new one called `scorekeep-api`:
+
+![scorekeep api repository](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/scorekeep-api-repository.png)
+
+Use the `aws-ecr` api call to get your repository credentials and execute your authentication, running the command:
+
+    `aws ecr get-login --no-include-email --region us-east-1`
+
+You should get the following result:
+
+    WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+    Login Succeeded
+
+Now, that your repository is created, tag your Docker image with the command:
+
+    docker tag scorekeep-api:latest <account_id>.dkr.ecr.us-east-1.amazonaws.com/scorekeep-api:latest
+
+And them push your image using the command:
+
+    docker push <account_id>.dkr.ecr.us-east-1.amazonaws.com/scorekeep-api:latest
+
+This will start the upload of your image to the ECR. You should see something similar to this in your terminal:
+
+    $ docker push 996278879643.dkr.ecr.us-east-1.amazonaws.com/scorekeep-api:latest
+    The push refers to a repository [996278879643.dkr.ecr.us-east-1.amazonaws.com/scorekeep-api]
+    4e2b459f47ea: Pushing [==============================>                    ]  12.62MB/20.91MB
+    69cc5717c281: Pushing [==========>                                        ]  20.35MB/97.4MB
+    5b1e27e74327: Pushed
+    04a094fe844e: Pushed
+
+When completed, you will something like:
+
+    The push refers to a repository [996278879643.dkr.ecr.us-east-1.amazonaws.com/scorekeep-api]
+    4e2b459f47ea: Pushed
+    69cc5717c281: Pushed
+    5b1e27e74327: Pushed
+    04a094fe844e: Pushed
+    latest: digest: sha256:9caa0d1508ea59ed1e13eb52ea90fd988c1dd5e0fec46ebda34c4eddc3679120 size: 1159
+
+Now, follow these same steps to your `scorekeep-frontend` image, creating a new repository, tagging and uploading the image.
