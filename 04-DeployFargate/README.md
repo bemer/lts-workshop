@@ -155,7 +155,7 @@ When completed, it should look similar to this:
     04a094fe844e: Pushed
     latest: digest: sha256:9caa0d1508ea59ed1e13eb52ea90fd988c1dd5e0fec46ebda34c4eddc3679120 size: 1159
 
-Now, follow these same steps to your `scorekeep-frontend` image, creating a new repository `scorkeep-frontend`, tagging it as `scorekeep-frontend:latest` and uploading the image with `/scorekeep-frontend:latest` at the end of the ECR repository URL.
+Now, follow these same steps to your `scorekeep-frontend` image, creating a new repository `scorekeep-frontend`, tagging it as `scorekeep-frontend:latest` and uploading the image with `/scorekeep-frontend:latest` at the end of the ECR repository URL.
 
 ## 5. Creating the Cluster
 
@@ -176,7 +176,7 @@ To create a Task Definition, choose **Task Definitions** at left side of the ECS
 
 ![type compatibility](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_compatibility.png)
 
-Click in **Next Step** and name your task **lts-scorekeep-app**. In the **Task Role**, select the role we created before `lts-scorekeep-role` and in the **Task execution role** select `ecsTaskExecutionRole`:
+Click in **Next Step** and name your task **lts-scorekeep-app**. In the **Task Role**, select the `lts-scorekeep-role` role that we created before and in the **Task execution role** select `ecsTaskExecutionRole`:
 
 ![task configuration](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_configuration.png)
 
