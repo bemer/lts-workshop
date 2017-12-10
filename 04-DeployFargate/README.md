@@ -63,6 +63,8 @@ In the next screen, click in **Create policy**, them select **JSON** and add the
         ]
     }
 
+Here is a screenshot of this screen:
+
 ![create taks policy](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_policy_creation.png)
 
 Click in **Review policy**, name your policy `lts-scorekeep-policy` and click in **Create policy**:
