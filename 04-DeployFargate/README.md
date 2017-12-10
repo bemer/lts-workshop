@@ -20,7 +20,7 @@
 
 This tutorial will walk you through a web application deployment using AWS Fargate. The application is called Scorekeep, which is a RESTful web API. It's written in Java and uses Spring to provide a HTTP interface for creation, users and game sessions management. It consists in two parts: the Scorekeep API and a front-end web app that consumes it.
 
-> We didn't developed this application. If you want to get more information about it, you can see the original repository at: https://github.com/awslabs/eb-java-scorekeep/.
+> We are not the owners of this application. If you want to get more information about it, you can see the original repository at: https://github.com/awslabs/eb-java-scorekeep/.
 
 After concluding this tutorial, you will have a serverless application running in AWS Fargate.
 
