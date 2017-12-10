@@ -115,7 +115,7 @@ After creating your images, go to the ECS console, under **Repositories** and cr
 
 ![scorekeep api repository](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/scorekeep-api-repository.png)
 
-Use the `aws-ecr` api call to get your repository credentials and execute your authentication, running the command:
+Use the `aws-ecr` api call to get your repository credentials and execute your authentication, running the command (don't forget the apostrophes):
 
     `aws ecr get-login --no-include-email --region us-east-1`
 
@@ -248,3 +248,5 @@ Click in **Create** them give a name to your game, select **Tic Tac Toe** under 
 After starting your game and making a few movements in it, you should be able to see some information about your games in your DynamoDB tables.
 
 ![gameplay](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/gameplay.png)
+
+![dynamodb items](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/dynamodb_items.png)
