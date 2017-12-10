@@ -1,3 +1,5 @@
+![lts logo](https://github.com/bemer/lts-workshop/blob/master/images/lts_logo.png)
+
 # Welcome to the LTS Container Track
 
 Hello and welcome to the Latam Tech Summit 2017 - Container Track day!
@@ -23,5 +25,3 @@ You know that thing called Kubernetes? I bet you kow. Be ready, because there's 
 ## 5) Enough of jibber jabber... 
 
 Go sharp your Container skills and take over the world. 
-
-![lts logo](https://github.com/bemer/lts-workshop/blob/master/images/lts_logo.png)
