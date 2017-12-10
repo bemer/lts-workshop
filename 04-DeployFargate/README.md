@@ -1,5 +1,8 @@
 # Deployng an application with AWS Fargate
 
+![aws fargate logo](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/aws_fargate_logo.png)
+
+
 **Quick jump:**
 
 * [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate#1-tutorial-overview)
