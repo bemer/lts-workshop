@@ -245,4 +245,6 @@ Click in **Create** them give a name to your game, select **Tic Tac Toe** under 
 
 ![game creation](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/game_creation.png)
 
-After starting your game and making a few movements in it, you should be able to see some information about your games in your DynamoDB tables. 
+After starting your game and making a few movements in it, you should be able to see some information about your games in your DynamoDB tables.
+
+![gameplay](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/gameplay.png)
