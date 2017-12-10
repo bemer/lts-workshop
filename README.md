@@ -8,7 +8,7 @@ Hello and welcome to the Latam Tech Summit 2017 - Container Track day! This is o
 
 We will walk you through the very basics of containers: from installing and configuring Docker in your machine, running containers locally, till finally deploying them in AWS.
 
-## 2) Please, run this lab in the exaclty order as follows: 
+## 2) Please, run this lab in the exactly order as follows: 
 
 [Setup Environment](https://github.com/bemer/lts-workshop/tree/master/01-SetupEnvironment)
 
