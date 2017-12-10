@@ -180,7 +180,7 @@ Click in **Next Step** and name your task **lts-scorekeep-app**. In the **Task R
 
 ![task configuration](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_configuration.png)
 
-In **Task size** select `2GBI` for **Task memory (GB)** and `1vCPU` for **Task CPU (vCPU)** and click in the **Add container** button:
+In **Task size** select `2GB` for **Task memory (GB)** and `1vCPU` for **Task CPU (vCPU)** and click in the **Add container** button:
 
 ![task size](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_size.png)
 
