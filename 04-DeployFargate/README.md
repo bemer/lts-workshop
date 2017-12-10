@@ -253,3 +253,14 @@ After starting your game and making a few movements in it, you should be able to
 ![gameplay](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/gameplay.png)
 
 ![dynamodb items](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/dynamodb_items.png)
+
+## 9. Conclusion
+
+This is it! You have successfully deployed an application with AWS Fargate and using Docker containers without having to provision any server.
+
+Now, take a moment to spend some time navigating in the AWS Fargate interface. Here is a list of a few thing that you can try:
+
+* Finding the container logs;
+* Deploying a new version of this application;
+* Adding an Application Load-Balancer in your task definition;
+* Deploying other containers using AWS Fargate (You can try with the container you created before).
