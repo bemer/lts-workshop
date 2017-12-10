@@ -31,13 +31,9 @@ You can check the CloudFormation creating process in your console, on the CloudF
 
 This cloudformation will create a few DynamoDB Tables, a Cloudwatch LogGroup and a SNS Topic.
 
-Now that we already have our infrastructure provisioned, we need to create a new IAM Role that will allow our application containers to access this services.
+Now that we already have our infrastructure provisioned, we need to create a new IAM Policy and apply it to a new IAM Role that will allow our application containers to access this services.
 
-Go to the IAM console, select **Roles** in the left corner of the page and click in **Create role**. In this screen, select **EC2 Container Service** and under **use case** select **EC2 Container Service Task** and click in **Next: Permissions**:
-
-![create taks role](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_role_creation.png)
-
-In the next screen, click in **Create policy**, them select **JSON** and add the following Policy document (remember to replace your account ID):
+Go to the IAM console, select **Policies** and click in **Create policy**. Select **JSON** and add the following Policy document (remember to replace your account ID):
 
     {
         "Version": "2012-10-17",
@@ -46,18 +42,18 @@ In the next screen, click in **Create policy**, them select **JSON** and add the
                 "Sid": "SNSRole",
                 "Effect": "Allow",
                 "Action": "sns:\*",
-                "Resource": "arn:aws:sns:us-east-1:<your_account_id>:scorekeep-notifications"
+                "Resource": "arn:aws:sns:us-east-1:996278879643:scorekeep-notifications"
             },
             {
                 "Sid": "DynamoDbRole",
                 "Effect": "Allow",
                 "Action": "dynamodb:\*",
                 "Resource": [
-                    "arn:aws:dynamodb:us-east-1:<your_account_id>:table/scorekeep-game",
-                    "arn:aws:dynamodb:us-east-1:<your_account_id>:table/scorekeep-move",
-                    "arn:aws:dynamodb:us-east-1:<your_account_id>:table/scorekeep-session",
-                    "arn:aws:dynamodb:us-east-1:<your_account_id>:table/scorekeep-state",
-                    "arn:aws:dynamodb:us-east-1:<your_account_id>:table/scorekeep-user"
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-game",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-move",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-session",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-state",
+                    "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-user"
                 ]
             }
         ]
@@ -67,9 +63,23 @@ Here is a screenshot of this screen:
 
 ![create taks policy](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_policy_creation.png)
 
+
 Click in **Review policy**, name your policy `lts-scorekeep-policy` and click in **Create policy**:
 
 ![finish policy creation ](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/finish_policy_creation.png)
+
+Now, go to the IAM console, select **Roles** in the left corner of the page and click in **Create role**. In this screen, select **EC2 Container Service** and under **use case** select **EC2 Container Service Task** and click in **Next: Permissions**:
+
+![create taks role](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_role_creation.png)
+
+In the permissions screen, select the `lts-scorekeep-policy` which we just created and click in **Next: Review**
+
+![associate role policy](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/associate_role_policy.png)
+
+Name your Role `lts-scorekeep-role` and click in **Create role**:
+
+![role creation](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/role_creation.png)
+
 
 
 ## 3. Building the Docker images
@@ -141,3 +151,24 @@ When completed, you will something like:
     latest: digest: sha256:9caa0d1508ea59ed1e13eb52ea90fd988c1dd5e0fec46ebda34c4eddc3679120 size: 1159
 
 Now, follow these same steps to your `scorekeep-frontend` image, creating a new repository, tagging and uploading the image.
+
+## 5. Creating the Cluster
+
+Let's create a new cluster to run our containers. In your AWS account dashboard, navigate to the [ECS console](https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters).
+
+Click in the button **Create cluster** and in the following screen select the **Networking only (Powered by AWS Fargate)** cluster template:
+
+![cluster template](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/cluster_template.png)
+
+In the **Cluster configuration** screen, add the name `lts-scorekeep-app` and click in create:
+
+![cluster configuration](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/cluster_configuration.png)
+
+## 6. Creating the Task Definition
+
+
+To create a Task Definition, choose **Task Definitions** from the ECS console menu.  Then, choose **Create new Task Definition**. Select `FARGATE` as the *Launch type compatibility*:
+
+![type compatibility](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_compatibility.png)
+
+Click in **Next Step** and name your task **lts-scorekeep-app**:
