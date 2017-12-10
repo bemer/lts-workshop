@@ -74,7 +74,7 @@ Click in **Review policy**, name your policy `lts-scorekeep-policy` and click in
 
 ## 3. Building the Docker images
 
-Now that we have the infrastructure, let's create the scorekeeper docker containers. As mentioned earlier, this application depends on two containers: one with the frontend and another with the backend API. Let's start creating our backend container.
+Now that we have the infrastructure, let's create the scorekeeper Docker images. As mentioned earlier, this application depends on two images: one with the frontend and another with the backend API. Let's start creating our backend container.
 
 Go to the `scorekeep-api` folder and run the following command to build your image:
 
