@@ -8,9 +8,12 @@ Hello and welcome to the Latam Tech Summit 2017 - Container Track day! This is o
 
 We will walk you through the very basics of containers: from installing and configuring Docker in your machine, running containers locally, till finally deploying them in AWS.
 
-## 2) Please, run this lab in the exaclty order 
+## 2) Please, run this lab in the exaclty order as follows: 
 
-From 01-SetupEnvironment till 04-DeployFargate, without skipping any tutorial.
+[Setup Environment](https://github.com/bemer/lts-workshop/tree/master/01-SetupEnvironment)
+[Creating A Docker Image](https://github.com/bemer/lts-workshop/tree/master/02-CreatingDockerImage)
+[Deploying Into A ECS Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster)
+[Deploying Containers Into AWS Fargate](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate)
 
 ## 3) If you are using a Windows machine (srsly?) 
 
