@@ -171,4 +171,28 @@ To create a Task Definition, choose **Task Definitions** from the ECS console me
 
 ![type compatibility](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_compatibility.png)
 
-Click in **Next Step** and name your task **lts-scorekeep-app**:
+Click in **Next Step** and name your task **lts-scorekeep-app**. In the **Task Role**, select the role we created before `lts-scorekeep-role` and in the **Task execution role** select `ecsTaskExecutionRole`:
+
+![task configuration](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_configuration.png)
+
+In **Task size** select `2GBI` in **Task memory (GB)** and `1vCPU` in **Task CPU (vCPU)** click in **Add container**:
+
+![task size](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/task_size.png)
+
+Let's first add our API container. In **Container name** insert `scorekeep-api` and add the URL for the scorekeep-api from your ERC registry with the tag `latest`. Set the memory **Soft limit** to `512` and in the port `5000` in **Port mappings**:
+
+![scorekeep-api standard configurations](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/api_standard_configurations.png)
+
+Under **Advanced container configuration** add `768` in **CPU Units** and create a new environment variable called `NOTIFICATION_TOPIC` where the value must be the ARN of the SNS Topic created by the CloudFormation template:
+
+![scorekeep-api advanced configurations](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/api_advanced_configurations.png)
+
+Now, click again in **Add container** to add the scorekeep-frontend container.
+
+In **Container name** insert `scorekeep-frontend`, in **Image** the URL of your scorekeep-frontend in the ECR repository with the tag `latest` and `512` under **Soft limit**. This container exposes the port `8080`, so add it to the **Port mappings** field. Under **Advanced container configuration** add `256` **CPU Units** and click in **Add**:
+
+![scorekeep-frontend configurations](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/frontend_configurations.png)
+
+After adding both containers, click in **Create**:
+
+![creating task](https://github.com/bemer/lts-workshop/blob/master/04-DeployFargate/images/creating_task.png)
