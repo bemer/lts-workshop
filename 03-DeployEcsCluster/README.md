@@ -1,5 +1,7 @@
 # Running an ECS Cluster
 
+![ecs logo](https://github.com/bemer/lts-workshop/blob/master/03-DeployEcsCluster/images/ecs_logo.png)
+
 **Quick jump:**
 
 * [1. Tutorial overview](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster#tutorial-overview)
