@@ -13,7 +13,7 @@ Follow [this URL](https://github.com/aws-samples/aws-workshop-for-kubernetes/tre
 * IAM user permissions
 * S3 Bucket for kops
 
-## DeployingCreate A Cluster
+## Create A Cluster
 
 * [Create a Gossip Based Kubernetes Cluster with kops](https://github.com/aws-samples/aws-workshop-for-kubernetes/tree/master/cluster-install#create-a-gossip-based-kubernetes-cluster-with-kops)
 
