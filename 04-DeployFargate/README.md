@@ -34,7 +34,7 @@ In the project folder, go to the `cloudformation` directory and run the followin
         --stack-name lts-scorekeep               \
         --template-body file://cf-resources.yaml \
         --capabilities "CAPABILITY_NAMED_IAM"    \
-        --region us-east-1 
+        --region us-east-1
 
 You can check the lts-scorekeep status in the CloudFormation service screen:
 
@@ -52,13 +52,13 @@ Go to the IAM console, select **Policies** and click in **Create policy**. Selec
             {
                 "Sid": "SNSRole",
                 "Effect": "Allow",
-                "Action": "sns:\*",
+                "Action": "sns:*",
                 "Resource": "arn:aws:sns:us-east-1:996278879643:scorekeep-notifications"
             },
             {
                 "Sid": "DynamoDbRole",
                 "Effect": "Allow",
-                "Action": "dynamodb:\*",
+                "Action": "dynamodb:*",
                 "Resource": [
                     "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-game*",
                     "arn:aws:dynamodb:us-east-1:996278879643:table/scorekeep-move*",
