@@ -130,12 +130,12 @@ This should drop you into a setup wizard:
 If you already have a profile setup with the AWS CLI, you can also add a new profile to your credentials file. In order to add another profile, edit your credentials (usually located in *~/.aws/credentials*) and add a new profile called "**lts-workshop**". After adding this new profile, your credentials file will be like this:
 
     [default]
-    aws_access_key_id = AKIAKSJF4ICN787JSCYA
-    aws_secret_access_key = BQBy2lJ/p8s4lPKjoa7vYhTAh3lmUM59pf1zyokx
+    aws_access_key_id = AKIABCDMYKEYEXAMPLE1
+    aws_secret_access_key = CAFESECRETACCESSKEYEXAMPLE001
 
     [lts-workshop]
-    aws_access_key_id = AKIAJKSJ2SXZFV7ABLDQ
-    aws_secret_access_key = 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
+    aws_access_key_id = AKIABCDMYKEYEXAMPLE2
+    aws_secret_access_key = CAFESECRETACCESSKEYEXAMPLE002
 
 
 You can test that your IAM user has the correct permissions, and that your CLI is setup to connect to your AWS account by running the command to obtain an ECR authentication token.  This will allow us to pull our registries in the next step:

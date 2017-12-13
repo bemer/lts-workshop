@@ -30,7 +30,11 @@ The **Scorekeep** application primarily interacts with two AWS services: Amazon 
 
 In the project folder, go to the `cloudformation` directory and run the following command to start a deployment of a new CloudFormation stack in your account:
 
-    aws --region us-east-1 cloudformation create-stack --stack-name lts-scorekeep --capabilities "CAPABILITY_NAMED_IAM" --template-body file://cf-resources.yaml
+    aws cloudformation create-stack              \
+        --stack-name lts-scorekeep               \
+        --template-body file://cf-resources.yaml \
+        --capabilities "CAPABILITY_NAMED_IAM"    \
+        --region us-east-1 
 
 You can check the lts-scorekeep status in the CloudFormation service screen:
 
