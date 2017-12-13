@@ -29,12 +29,10 @@ Follow [this URL](https://github.com/aws-samples/aws-workshop-for-kubernetes/tre
 
 Follow [this URL](https://github.com/aws-samples/aws-workshop-for-kubernetes/tree/master/developer-concepts)
 
-### Pod
+
 * Create a Pod
 * Memory and CPU resource request
 * Delete a Pod
-
-
 * Deployment
 * Service
 * Daemon Set
