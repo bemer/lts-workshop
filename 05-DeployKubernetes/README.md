@@ -6,7 +6,7 @@ Today's last tutorial is going to guide you through a deployment of a Kubernetes
 
 Before starting this lab, you must follow these [Pre-requisites](https://github.com/aws-samples/aws-workshop-for-kubernetes/blob/master/prereqs.adoc).
 
-Note that some of these requirements where done before in the previous labs. If this is the case, you don't need to do it again.
+Note that some of these requirements might be duplicated in the next steps. If this is the case, you don't need to do it again.
 
 ## Create a Kubernetes Cluster Using KOPS
 
