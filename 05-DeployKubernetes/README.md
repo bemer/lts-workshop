@@ -27,7 +27,7 @@ Follow [this URL](https://github.com/aws-samples/aws-workshop-for-kubernetes/tre
 
 * [Instance Groups with kops (Optional)](https://github.com/aws-samples/aws-workshop-for-kubernetes/tree/master/cluster-install#instance-groups-with-kops)
 
-* Delete A Cluster
+* [Delete A Cluster](https://github.com/aws-samples/aws-workshop-for-kubernetes/tree/master/cluster-install#delete-a-cluster)
   **PLEASE, DO NOT DELETE MULTI-MASTER, MULTI-NODE-MULTI-AZ CLUSTER!**
 
 
