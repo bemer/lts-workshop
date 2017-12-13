@@ -29,3 +29,5 @@ Go sharp your Container skills and take over the world.
 * [3. Running An ECS Cluster](https://github.com/bemer/lts-workshop/tree/master/03-DeployEcsCluster)
 
 * [4. Deploying An Application with AWS Fargate](https://github.com/bemer/lts-workshop/tree/master/04-DeployFargate)
+
+* [5. Deploying a Kubernetes Cluster with KOPS](https://github.com/bemer/lts-workshop/tree/master/05-DeployKubernetes)
