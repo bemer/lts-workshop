@@ -2,7 +2,7 @@
 
 Today's last tutorial is going to guide you through a deployment of a Kubernetes Cluster using Kops.
 
-We will be using a material crafted by Arun Gupta. This tutorial is available in [this link](https://github.com/aws-samples/aws-workshop-for-kubernetes). If you want, you can just follow the **Beginner (100 level)**, but we advice you to follow the following steps:
+We will be using a material crafted by Arun Gupta. This tutorial is available in [this link](https://github.com/aws-samples/aws-workshop-for-kubernetes). If you want, you can just follow the levels starting with the **Beginner (100 level)** and so on, but we advice you to follow the following steps:
 
 ## Pre-Reqs
 
