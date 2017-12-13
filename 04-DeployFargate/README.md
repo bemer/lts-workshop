@@ -52,7 +52,7 @@ Go to the IAM console, select **Policies** and click in **Create policy**. Selec
             {
                 "Sid": "SNSRole",
                 "Effect": "Allow",
-                "Action": "sns:*",
+                "Action": "SNS:*",
                 "Resource": "arn:aws:sns:us-east-1:996278879643:scorekeep-notifications"
             },
             {
